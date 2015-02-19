@@ -11,5 +11,5 @@ var data = {
     ]
 }
 sentiment140.bulkClassifyJson(data, function(error, result) {
-    console.log(JSON.stringify(result.body));
+    console.log(JSON.stringify(result));
 });

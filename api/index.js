@@ -33,8 +33,14 @@ API.bulkClassifyJson = function (params, callback) {
         }
     };
 
-    var createAPIRequest = require('../lib/apirequest');
-    return createAPIRequest(parameters, callback);
+    var APIRequest = require('../lib/apirequest');
+    var apiRequest = APIRequest(parameters, function(error, result) {
+        if(!error) {
+            result = result.body;
+        }
+        callback(error, result);
+    });
+    return apiRequest;
 }
 
 /**
