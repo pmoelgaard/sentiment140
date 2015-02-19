@@ -1,4 +1,14 @@
-Usage:
+This is an unofficial library allowing developers to easily interact with the Sentiment140 Natural Language Processing Service API.
+
+Offical Website:
+[http://www.sentiment140.com/](http://www.sentiment140.com/)  
+API Documentation:
+[http://help.sentiment140.com/api](http://help.sentiment140.com/api)
+
+
+---
+
+Sample Usage:
 
 
 	var Sentiment140 = require('sentiment140-nodejs-client');
