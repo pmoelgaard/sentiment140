@@ -1,0 +1,30 @@
+{
+  "name": "sentiment140-nodejs-client",
+  "version": "1.0.0",
+  "description": "This is a NodeJS Client Library for the sentiment140 Natural Language Processing Service API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pmoelgaard/sentiment140-nodejs-client"
+  },
+  "keywords": [
+    "sentiment",
+    "analysis",
+    "natural",
+    "language",
+    "processing",
+    "nodejs"
+  ],
+  "author": "Peter Andreas Moelgaard <admin@petermolgard.com> (http://petermolgaard.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pmoelgaard/sentiment140-nodejs-client/issues"
+  },
+  "homepage": "https://github.com/pmoelgaard/sentiment140-nodejs-client",
+  "dependencies": {
+    "request": "^2.53.0"
+  }
+}
