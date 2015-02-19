@@ -27,7 +27,10 @@ API.bulkClassifyJson = function (params, callback) {
 
     var parameters = {
         options: options,
-        params: params
+        params: {
+            json: true,
+            body: params
+        }
     };
 
     var createAPIRequest = require('../lib/apirequest');
