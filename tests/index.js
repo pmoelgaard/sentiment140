@@ -1,15 +1,26 @@
 var Sentiment140 = require('../index');
 var sentiment140 = new Sentiment140({
-    auth: 'sentiment140@petermolgaard.com'
+    auth: '[INSERT YOUR EMAIL HERE]'
 });
 
-var data = {
+var dataSimple = {
+    "data": {
+        "id": 1,
+        "text": "I love Titanic.",
+        "query": "Titanic"
+    }
+}
+sentiment140.sentiment(dataSimple, function(error, result) {
+    console.log(JSON.stringify(result));
+});
+
+var dataBulk = {
     "data": [
         {"text": "I love Titanic.", "id": 1 },
         {"text": "I hate Titanic.", "id": 2 },
         {"text": "I like Titanic.", "id": 3 }
     ]
 }
-sentiment140.bulkClassifyJson(data, function(error, result) {
+sentiment140.sentiment(dataBulk, function(error, result) {
     console.log(JSON.stringify(result));
 });

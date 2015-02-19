@@ -17,26 +17,44 @@ var API = {};
  * @param  {callback} callback - The callback that handles the response.
  * @return {object} Request object
  */
-API.bulkClassifyJson = function (params, callback) {
+API.sentiment = function (params, callback) {
+
+    var isSimple = ! Array.isArray(params.data);
 
     var options = utils.extend({}, this.options, {
-            context: 'bulkClassifyJson',
-            method: 'POST'
+            service: isSimple ? 'classify' : 'bulkClassifyJson',
+            method: isSimple ? 'GET' : 'POST'
         }
-    );
+    )
 
-    var parameters = {
-        options: options,
-        params: {
-            json: true,
-            body: params
-        }
-    };
+    if(isSimple) {
+        params = {
+            options: options,
+            params: {
+                json: true,
+                qs: params.data
+            }
+        };
+    }
+    else {
+        params = {
+            options: options,
+            params: {
+                json: true,
+                body: params
+            }
+        };
+    }
 
     var APIRequest = require('../lib/apirequest');
-    var apiRequest = APIRequest(parameters, function(error, result) {
+    var apiRequest = APIRequest(params, function(error, result) {
         if(!error) {
-            result = result.body;
+            if(isSimple) {
+                result = result.body.results;
+            }
+            else {
+                result = result.body.data;
+            }
         }
         callback(error, result);
     });
