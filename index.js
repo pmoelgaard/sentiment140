@@ -57,6 +57,12 @@ Sentiment140.prototype.addAPI = function(api) {
     }
 };
 
+Sentiment140.Polarity = {
+    NEGATIVE: 0,
+    NEUTRAL: 2,
+    POSITIVE: 4
+}
+
 /**
  * Exports Sentiment140.
  */
