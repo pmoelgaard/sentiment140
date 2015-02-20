@@ -57,11 +57,26 @@ Sentiment140.prototype.addAPI = function(api) {
     }
 };
 
-Sentiment140.Polarity = {
+/**
+ * Add enum to Global
+ *
+ * @param {Array} enums Enum to be added
+ * @private
+ */
+Sentiment140.addEnum = function(enums) {
+    for (var enumName in enums) {
+        this[enumName] = enums[enumName];
+    }
+};
+
+/**
+ * Sentiment140 Polarity Enum
+ */
+Sentiment140.addEnum({
     NEGATIVE: 0,
     NEUTRAL: 2,
     POSITIVE: 4
-}
+})
 
 /**
  * Exports Sentiment140.
