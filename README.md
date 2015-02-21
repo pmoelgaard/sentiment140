@@ -1,35 +1,48 @@
-Library allowing developers to easily interact with the Sentiment140 Natural Language Processing Service API.
+Sentiment Analysis 140
+===
 
-Offical Website:
-[http://www.sentiment140.com/](http://www.sentiment140.com/)  
-API Documentation:
-[http://help.sentiment140.com/api](http://help.sentiment140.com/api)
+JavaScript wrapper for the [Sentiment140 Natural Language Processing Service](http://www.sentiment140.com/).
 
 
 ---
 
-Sample Usage:
+Usage
+---
 
+### Setup
 
 	var Sentiment140 = require('sentiment140');
 	var sentiment140 = new Sentiment140({
    		auth: '[INSERT YOUR EMAIL HERE]'
 	});
 
+    
+### Simple Analysis
+Takes a simple string.
+
+###### Request
+
 	var dataSimple = {
     	"data": {
-        	"id": 1,
-        	"text": "I love Titanic.",
-        	"query": "Titanic"
+        	"text": "I am a Teapot and a Submarine"
     	}
 	}
 	sentiment140.sentiment(dataSimple, function(error, result) {
     	console.log(JSON.stringify(result));
 	});
+    
+###### Response
+	[Missing]
 
-	var dataBulk = {
+    
+### Bulk Detection
+Takes an array of simple strings.
+
+###### Request
+    
+    var dataBulk = {
     	"data": [
-       		{"text": "I love Titanic.", "id": 1 },
+        	{"text": "I love Titanic.", "id": 1 },
         	{"text": "I hate Titanic.", "id": 2 },
         	{"text": "I like Titanic.", "id": 3 }
     	]
@@ -37,4 +50,16 @@ Sample Usage:
 	sentiment140.sentiment(dataBulk, function(error, result) {
     	console.log(JSON.stringify(result));
 	});
+    
+###### Response
+	[Missing]
 
+---
+
+Author
+---
+Peter Andreas Moelgaard ([GitHub](https://github.com/pmoelgaard), [Twitter](https://twitter.com/petermoelgaard))
+
+License
+---
+Licensed under the Apache License, Version 2.0: [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)

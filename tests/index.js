@@ -21,9 +21,7 @@ var sentiment140 = new Sentiment140({
 
 var dataSimple = {
     "data": {
-        "id": 1,
-        "text": "I love Titanic.",
-        "query": "Titanic"
+        "text": "I love Titanic."
     }
 }
 sentiment140.sentiment(dataSimple, function(error, result) {
