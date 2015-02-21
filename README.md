@@ -6,6 +6,11 @@ JavaScript wrapper for the [Sentiment140 Natural Language Processing Service](ht
 
 ---
 
+Installation
+---
+	npm install detectlanguage [--save]
+
+	
 Usage
 ---
 
