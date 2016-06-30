@@ -1,6 +1,6 @@
 {
   "name": "sentiment140",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "This is a NodeJS Client Library for the sentiment140 Natural Language Processing Service API",
   "main": "index.js",
   "scripts": {
