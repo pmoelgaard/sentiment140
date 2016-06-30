@@ -62,7 +62,7 @@ API.sentiment = function (params, callback) {
         };
     }
 
-    return new Promise(function (reject, resolve) {
+    return new Promise(function (resolve, reject) {
 
         var APIRequest = require('../lib/apirequest');
         var apiRequest = APIRequest(params, function (error, result) {
@@ -78,7 +78,7 @@ API.sentiment = function (params, callback) {
             
             (callback || _.noop)(error, result);
 
-            error ? reject(err) : resolve(result);
+            error ? reject(error) : resolve(result);
         });
 
     });
