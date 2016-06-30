@@ -8,8 +8,8 @@ JavaScript wrapper for the [Sentiment140 Natural Language Processing Service](ht
 
 Installation
 ---
-	npm install detectlanguage [--save]
-
+	npm install sentiment140 [--save]
+	
 	
 Usage
 ---
@@ -58,6 +58,13 @@ Takes an array of simple strings.
     
 ###### Response
 	[Missing]
+
+
+Promises & Callbacks
+---
+
+The sentiment140 library now supports both traditional callback return functions as well as Promises.
+Sentiment140 uses the bluebird library for the promise implementation.
 
 ---
 

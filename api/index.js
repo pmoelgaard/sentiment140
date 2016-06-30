@@ -17,6 +17,8 @@
 'use strict';
 
 var utils = require('../lib/utils');
+var Promise = require('bluebird');
+var _ = require('lodash');
 
 var API = {};
 
@@ -33,7 +35,7 @@ var API = {};
  */
 API.sentiment = function (params, callback) {
 
-    var isSimple = ! Array.isArray(params.data);
+    var isSimple = !Array.isArray(params.data);
 
     var options = utils.extend({}, this.options, {
             service: isSimple ? 'classify' : 'bulkClassifyJson',
@@ -41,7 +43,7 @@ API.sentiment = function (params, callback) {
         }
     )
 
-    if(isSimple) {
+    if (isSimple) {
         params = {
             options: options,
             params: {
@@ -60,19 +62,26 @@ API.sentiment = function (params, callback) {
         };
     }
 
-    var APIRequest = require('../lib/apirequest');
-    var apiRequest = APIRequest(params, function(error, result) {
-        if(!error) {
-            if(isSimple) {
-                result = result.body.results;
+    return new Promise(function (reject, resolve) {
+
+        var APIRequest = require('../lib/apirequest');
+        var apiRequest = APIRequest(params, function (error, result) {
+
+            if (!error) {
+                if (isSimple) {
+                    result = result.body.results;
+                }
+                else {
+                    result = result.body.data;
+                }
             }
-            else {
-                result = result.body.data;
-            }
-        }
-        callback(error, result);
+            
+            (callback || _.noop)(error, result);
+
+            error ? reject(err) : resolve(result);
+        });
+
     });
-    return apiRequest;
 }
 
 /**

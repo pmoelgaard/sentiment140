@@ -1,0 +1,8 @@
+{
+  "name": "sentiment140",
+  "dependencies": {},
+  "globalDependencies": {
+    "bluebird": "registry:dt/bluebird#2.0.0+20160319051630",
+    "lodash": "registry:dt/lodash#3.10.0+20160619033623"
+  }
+}
